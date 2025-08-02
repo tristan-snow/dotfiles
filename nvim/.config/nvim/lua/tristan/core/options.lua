@@ -33,5 +33,8 @@ vim.opt.wrap = false
 vim.opt.splitright = true -- split vertical windows to the right
 vim.opt.splitbelow = true -- split horzontal windows to the bottom
 
+-- persistant undofile
+vim.opt.undofile = true 
+
 -- Enable syntax
 vim.cmd('syntax enable')
