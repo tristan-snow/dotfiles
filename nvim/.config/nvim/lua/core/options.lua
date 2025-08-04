@@ -1,3 +1,4 @@
+
 --Neovim vim.options--
 
 -- Turn on foldcolumn

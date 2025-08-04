@@ -1,2 +1,3 @@
-require("tristan.core")
-require("tristan.lazy")
+require("core.keymaps")
+require("core.options")
+require("plugins.mini")
