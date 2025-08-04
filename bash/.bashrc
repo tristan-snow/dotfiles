@@ -25,12 +25,12 @@ alias sp='sudo pacman -S '
 alias so=source
 alias remove_orphans='pacman -Rns $(pacman -Qdtq)'
 
-export VIMKEYS="$HOME/.config/nvim/lua/tristan/core/keymaps.lua"
-export VIMOPTS="$HOME/.config/nvim/lua/tristan/core/options.lua"
+export VIMKEYS="$HOME/.config/nvim/lua/core/keymaps.lua"
+export VIMOPTS="$HOME/.config/nvim/lua/core/options.lua"
 
 alias nvk='nvim $VIMKEYS'
 alias nvo='nvim $VIMOPTS'
-alias nvb='nvim ~/.bashrc'
+alias nvb='nvim ~/.bashrc && source ~/.bashrc'
 
 # Map p to pushd for faster directory stack transit
 p() { pushd "+$1"; }
@@ -66,5 +66,8 @@ sd() {
   cd "$(find . -type d | fzf --query "$1")"
 }
 
+hw() { echo "Hello World"; }
+
 PS1='[\u@\h \W]\$ '
 PS1='[\W]\$ '
+PS1='[\w]\n\$ '
