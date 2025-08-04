@@ -1,5 +1,8 @@
 --Neovim vim.options--
 
+-- Turn on foldcolumn
+vim.opt.foldcolumn = "1"
+
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
@@ -33,7 +36,7 @@ vim.opt.wrap = false
 vim.opt.splitright = true -- split vertical windows to the right
 vim.opt.splitbelow = true -- split horzontal windows to the bottom
 
--- persistant undofile
+-- persistent undofile
 vim.opt.undofile = true 
 
 -- Enable syntax
