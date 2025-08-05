@@ -2,7 +2,7 @@
 --Neovim vim.options--
 
 -- Turn on foldcolumn
-vim.opt.foldcolumn = "1"
+vim.opt.foldcolumn = '1'
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
@@ -21,7 +21,7 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 
 -- use system clipboard as default register
-vim.opt.clipboard:append("unnamedplus") 
+vim.opt.clipboard:append('unnamedplus') 
 
 --search settings
 vim.opt.ignorecase = true
