@@ -11,7 +11,7 @@ require('mini.bracketed').setup()
 require('mini.extra').setup()
 
 -- Mini Files
-require('mini.files').setup()
+require('mini.files').setup({mappings = { go_in_plus = '<Enter>'}})
 vim.keymap.set('n', '<leader>e', '<cmd>lua MiniFiles.open()<cr>', {desc = 'File explorer'})
 
 -- Mini Pick
