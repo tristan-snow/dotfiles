@@ -43,6 +43,7 @@ popall(){ cd ~ && while popd > /dev/null; do :; done }
 
 # Fuzzily find file, move to its directory and open with nvim
 nf() {
+  cd ~
   file=$(fzf --query "$1") || return
   [ -f "$file" ] || return
   dir=$(dirname "$file")
@@ -65,8 +66,6 @@ sd() {
   cd ~ 
   cd "$(find . -type d | fzf --query "$1")"
 }
-
-hw() { echo "Hello World"; }
 
 PS1='[\u@\h \W]\$ '
 PS1='[\W]\$ '
