@@ -1,5 +1,6 @@
+
 vim.pack.add({
-	{src = "https://github.com/echasnovski/mini.nvim" },
+	{src = 'https://github.com/echasnovski/mini.nvim' },
 })
 
 require('mini.starter').setup()
