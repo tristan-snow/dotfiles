@@ -2,14 +2,29 @@
 -- map leader
 vim.g.mapleader = ';'
 
--- clear search highlighting
+-- clear search set('n', '<leader>x', '<cmd>.lua<CR>', { desc = 'Execute the current line' })highlighting
 vim.keymap.set('n', '<leader>l', ':nohlsearch<CR>:match<CR>:diffupdate<CR>', { desc = 'Clear search highlighting', silent = true})
 
--- window management
+-- split management
 vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally'})
 vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically'})
--- Disabling for now, see if I ever use it. ;q seems to work just as well for this
--- vim.keymap.set('n', '<leader>sx', '<CMD>close<CR>', { desc = 'Closes split'})
+
+-- terminal mode
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+-- Open a terminal at the bottom of the screen with a fixed height.
+vim.keymap.set('n', '<leader>st', function()
+  vim.cmd.new()
+  vim.cmd.wincmd 'J'
+  vim.api.nvim_win_set_height(0, 12)
+  vim.wo.winfixheight = true
+  vim.cmd.term()
+end)
+
+-- execute lua code
+vim.keymap.set('n', '<leader>x', '<cmd>.lua<CR>', { desc = 'Execute the current line' })
+vim.keymap.set('v', '<leader>x', '<cmd>\'<,\'>lua<CR>', { desc = 'Execute the hightlighted text' })
+vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<CR>', { desc = 'Execute the current file' })
 
 -- window movement
 vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move right a window'})
