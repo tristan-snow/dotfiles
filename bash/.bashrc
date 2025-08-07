@@ -24,9 +24,13 @@ alias vim=nvim
 alias sp='sudo pacman -S '
 alias so=source
 alias remove_orphans='pacman -Rns $(pacman -Qdtq)'
+alias nord=nordvpn
+alias nordob='nordvpn set technology openvpn && nordvpn set obfuscate enabled && nordvpn connect' 
+alias nordlynx='nordvpn set technology nordlynx && nordvpn connect' 
+alias nordwhisper='nordvpn set technology nordwhisper && nordvpn connect' 
 
-export VIMKEYS="$HOME/.config/nvim/lua/core/keymaps.lua"
-export VIMOPTS="$HOME/.config/nvim/lua/core/options.lua"
+export VIMKEYS="$HOME/.config/nvim/plugin/keymaps.lua"
+export VIMOPTS="$HOME/.config/nvim/plugin/options.lua"
 
 alias nvk='nvim $VIMKEYS'
 alias nvo='nvim $VIMOPTS'
