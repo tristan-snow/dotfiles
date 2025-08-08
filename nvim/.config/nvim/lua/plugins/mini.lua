@@ -12,11 +12,9 @@ require('mini.extra').setup()
 
 -- Mini Files
 require('mini.files').setup({mappings = { go_in_plus = '<Enter>'}})
-vim.keymap.set('n', '<leader>e', '<cmd>lua MiniFiles.open()<cr>', {desc = 'File explorer'})
 
 -- Mini Pick
 require('mini.pick').setup()
-vim.keymap.set('n', '<leader>f', '<cmd>Pick files<cr>', {desc = 'Pick files'})
 
 -- Mini Jump
 require('mini.jump').setup({
@@ -25,3 +23,6 @@ require('mini.jump').setup({
     },
   }
 )
+
+vim.keymap.set('n', '<leader>e', '<cmd>lua MiniFiles.open()<cr>', {desc = 'File explorer'})
+vim.keymap.set('n', '<leader>f', '<cmd>Pick files<cr>', {desc = 'Pick files'})

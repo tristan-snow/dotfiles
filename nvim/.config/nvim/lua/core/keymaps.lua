@@ -12,16 +12,7 @@ vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically'})
 -- terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- Open a terminal at the bottom of the screen with a fixed height.
-vim.keymap.set('n', '<leader>st', function()
-  vim.cmd.new()
-  vim.cmd.wincmd 'J'
-  vim.api.nvim_win_set_height(0, 12)
-  vim.wo.winfixheight = true
-  vim.cmd.term()
-end)
-
--- execute lua code
+-- execute lua code within neovim
 vim.keymap.set('n', '<leader>x', '<cmd>.lua<CR>', { desc = 'Execute the current line' })
 vim.keymap.set('v', '<leader>x', '<cmd>\'<,\'>lua<CR>', { desc = 'Execute the hightlighted text' })
 vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<CR>', { desc = 'Execute the current file' })

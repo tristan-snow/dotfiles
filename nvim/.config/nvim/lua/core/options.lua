@@ -1,8 +1,6 @@
 
---Neovim vim.options--
-
---Speed up package loading
-vim.loader.enable()
+-- Speed up package loading
+-- vim.loader.enable()
 
 -- Turn on foldcolumn
 vim.opt.foldcolumn = '1'
