@@ -2,7 +2,7 @@
 -- map leader
 vim.g.mapleader = ';'
 
--- clear search set('n', '<leader>x', '<cmd>.lua<CR>', { desc = 'Execute the current line' })highlighting
+-- clear search highlighting
 vim.keymap.set('n', '<leader>l', ':nohlsearch<CR>:match<CR>:diffupdate<CR>', { desc = 'Clear search highlighting', silent = true})
 
 -- split management
@@ -26,22 +26,23 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move left a window'})
 -- buffer navigation
 vim.keymap.set('n', '<leader>b', ':buffers<CR>:buffer<Space>', { desc = 'Show buffer list and prompt buffer number'})
 
+-- new tab
+vim.keymap.set('n', '<leader>t', ':tabnew', { desc = 'New tab'})
+
 -- movement
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Center after scroll down'})
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Center after scroll down'})
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Center after scroll up'})
 vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Next search result (centered)' })
 vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Previous search result (centered)' })
 
 -- write and quit shortcuts
 vim.keymap.set('n', '<leader>w', '<CMD>w<CR>', { desc = 'Write buffer'})
-vim.keymap.set('n', '<leader>wa', '<CMD>wall<CR>', { desc = 'Write all buffers'})
-vim.keymap.set('n', '<leader>wq', '<CMD>w<CR><CMD>q<CR>', { desc = 'Write and quit buffer'})
-vim.keymap.set('n', '<leader>W', '<CMD>wall<CR><CMD>qall<CR>', { desc = 'Write and quit all buffers'})
-vim.keymap.set('n', '<leader>q', '<CMD>q<CR>', { desc = 'Quit buffer'})
+vim.keymap.set('n', '<leader>W', '<CMD>wall<CR>', { desc = 'Write all buffers'})
+--These following commands I wasn't using, and they make the command register slightly slower
+--vim.keymap.set('n', '<leader>wq', '<CMD>w<CR><CMD>q<CR>', { desc = 'Write and quit buffer'})
+--vim.keymap.set('n', '<leader>W', '<CMD>wall<CR><CMD>qall<CR>', { desc = 'Write and quit all buffers'})
+vim.keymap.set('n', '<leader>q', '<CMD>q<CR>', { desc = 'Quit window'})
+vim.keymap.set('n', '<leader>Q', '<CMD>qall!<CR>', { desc = 'Quit out of all windows, forcefully'})
 vim.keymap.set('n', '<leader>d', '<CMD>bd<CR>', { desc = 'Discard current buffer'})
-vim.keymap.set('n', '<leader>Q', '<CMD>qall!<CR>', { desc = 'Quit out of all, forcefully'})
-
--- alias x to d in visual mode
--- Again, disabling for now to see if I use it.
--- vim.keymap.set('v', 'x', 'd', { desc = 'Delete in visual mode with x'})
+vim.keymap.set('n', '<leader>D', '<CMD>bwipeout<CR>', { desc = 'Wipe out current buffer'})
 

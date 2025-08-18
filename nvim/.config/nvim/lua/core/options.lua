@@ -1,15 +1,16 @@
 
+-- Set up colorscheme
+vim.opt.termguicolors = true
+vim.opt.background = 'dark'
+
 -- Speed up package loading
--- vim.loader.enable()
+vim.loader.enable()
 
 -- Turn on foldcolumn
 vim.opt.foldcolumn = '1'
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
-
--- Turn on guicolors
-vim.opt.termguicolors = true
 
 -- line numbers
 vim.opt.number = true
