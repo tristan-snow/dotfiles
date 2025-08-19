@@ -19,16 +19,9 @@ local	languages = {
 		"zls"
 }
 
--- List of filetypes to start LSP on.
+-- List of filetypes that are not attaching automatically on start
 local filetypes = {
-  'zig',
-  'c',
-  'markdown',
-  'bash',
-  'html',
-  'css',
   'lua',
-  'python',
 }
 
 vim.api.nvim_create_autocmd("VimEnter", {
@@ -37,7 +30,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
     local ft = vim.bo[bufnr].filetype
     for _, f in ipairs(filetypes) do
       if f == ft then
-        vim.cmd("LspStart") -- run your custom attach function here instead if you have one
+        vim.cmd("LspStart")
         break
       end
     end
@@ -50,8 +43,7 @@ require('mason-tool-installer').setup({
 	ensure_installed = languages
 })
 
-vim.lsp.enable(languages)
-
+-- Remove error marks in nvim config/plugin files
 vim.lsp.config('lua_ls', {
   on_init = function(client)
     if client.workspace_folders then
