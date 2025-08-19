@@ -1,26 +1,56 @@
- 
+
 vim.pack.add {
-	{ src = 'https://github.com/neovim/nvim-lspconfig' },
+	{ src = 'https://github.com/neovim/nvim-lspconfig'},
 	{ src = 'https://github.com/mason-org/mason.nvim' },
 	{ src = 'https://github.com/mason-org/mason-lspconfig.nvim' },
 	{ src = 'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim' },
 }
 
-require('mason').setup()
-require('mason-lspconfig').setup()
-require('mason-tool-installer').setup({
-	ensure_installed = {
+-- Prevent test from jumping.
+vim.o.signcolumn = "yes"
+
+-- List of languages for Mason to install
+local	languages = {
 		"lua_ls",
-		"stylua",
 		"pyright",
 		"html-lsp",
 		"css-lsp",
 		"clangd",
 		"zls"
-	}
+}
+
+-- List of filetypes to start LSP on.
+local filetypes = {
+  'zig',
+  'c',
+  'markdown',
+  'bash',
+  'html',
+  'css',
+  'lua',
+  'python',
+}
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local ft = vim.bo[bufnr].filetype
+    for _, f in ipairs(filetypes) do
+      if f == ft then
+        vim.cmd("LspStart") -- run your custom attach function here instead if you have one
+        break
+      end
+    end
+  end,
 })
 
-vim.lsp.enable({ "lua_ls", "stylua", "pyright", "clangd" })
+require('mason').setup()
+require('mason-lspconfig').setup()
+require('mason-tool-installer').setup({
+	ensure_installed = languages
+})
+
+vim.lsp.enable(languages)
 
 vim.lsp.config('lua_ls', {
   on_init = function(client)
@@ -51,18 +81,7 @@ vim.lsp.config('lua_ls', {
         checkThirdParty = false,
         library = {
           vim.env.VIMRUNTIME
-          -- Depending on the usage, you might want to add additional paths
-          -- here.
-          -- '${3rd}/luv/library'
-          -- '${3rd}/busted/library'
         }
-        -- Or pull in all of 'runtimepath'.
-        -- NOTE: this is a lot slower and will cause issues when working on
-        -- your own configuration.
-        -- See https://github.com/neovim/nvim-lspconfig/issues/3189
-        -- library = {
-        --   vim.api.nvim_get_runtime_file('', true),
-        -- }
       }
     })
   end,
@@ -70,6 +89,4 @@ vim.lsp.config('lua_ls', {
     Lua = {}
   }
 })
- 
--- Prevent test from jumping.
-vim.o.signcolumn = "yes"
+

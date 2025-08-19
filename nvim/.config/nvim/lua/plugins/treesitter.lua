@@ -32,5 +32,3 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = filetypes,
   callback = function() vim.treesitter.start() end,
 })
-
---require('nvim-treesitter.configs').setup(
