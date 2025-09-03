@@ -9,6 +9,7 @@ require('mini.statusline').setup()
 require('mini.icons').setup()
 require('mini.bracketed').setup()
 require('mini.extra').setup()
+--require('mini.completion').setup()
 
 --Mini Files
 require('mini.files').setup({mappings = { go_in_plus = '<Enter>'}})

@@ -8,6 +8,12 @@ vim.keymap.set('n', '<leader>l', ':nohlsearch<CR>:match<CR>:diffupdate<CR>', { d
 -- split management
 vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally'})
 vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically'})
+vim.keymap.set('n', '<leader>st', function()
+  vim.cmd("bot split | terminal")
+  vim.api.nvim_win_set_height(0,10)
+end,
+  {desc = 'Open small terminal in bottom split'}
+)
 
 -- terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
@@ -44,5 +50,6 @@ vim.keymap.set('n', '<leader>W', '<CMD>wall<CR>', { desc = 'Write all buffers'})
 vim.keymap.set('n', '<leader>q', '<CMD>q<CR>', { desc = 'Quit window'})
 vim.keymap.set('n', '<leader>Q', '<CMD>qall!<CR>', { desc = 'Quit out of all windows, forcefully'})
 vim.keymap.set('n', '<leader>d', '<CMD>bd<CR>', { desc = 'Discard current buffer'})
-vim.keymap.set('n', '<leader>D', '<CMD>bwipeout<CR>', { desc = 'Wipe out current buffer'})
+-- Wipeout removes all jumps, marks, etc as well as deleting buffer.
+vim.keymap.set('n', '<leader>D', '<CMD>bwipeout!<CR>', { desc = 'Wipe out current buffer, forcefully'})
 

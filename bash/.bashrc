@@ -28,6 +28,7 @@ alias nord=nordvpn
 alias nordob='nordvpn set technology openvpn && nordvpn set obfuscate enabled && nordvpn connect' 
 alias nordlynx='nordvpn set technology nordlynx && nordvpn connect' 
 alias nordwhisper='nordvpn set technology nordwhisper && nordvpn connect' 
+alias ns='nordvpn status' 
 alias gs='git status'
 
 alias wificonnect='nmcli device wifi connect' 
@@ -73,6 +74,15 @@ sdp() {
 sd() {
   cd ~ 
   cd "$(find . -type d | fzf --query "$1")"
+}
+
+# Open yazi with y, change pwd to yazi directory
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
 }
 
 PS1='[\u@\h \W]\$ '

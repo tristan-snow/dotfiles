@@ -4,6 +4,7 @@ vim.pack.add {
 	{ src = 'https://github.com/mason-org/mason.nvim' },
 	{ src = 'https://github.com/mason-org/mason-lspconfig.nvim' },
 	{ src = 'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim' },
+	{ src = 'https://github.com/saghen/blink.cmp' },
 }
 
 -- Prevent test from jumping.
@@ -82,3 +83,6 @@ vim.lsp.config('lua_ls', {
   }
 })
 
+require('blink.cmp').setup({fuzzy = { implementation = "lua" }})
+
+vim.opt.completeopt = { "menuone", "noselect", "popup" }

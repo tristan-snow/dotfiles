@@ -23,7 +23,7 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 
 -- use system clipboard as default register
-vim.opt.clipboard:append('unnamedplus') 
+vim.opt.clipboard:append('unnamedplus')
 
 --search settings
 vim.opt.ignorecase = true
@@ -40,7 +40,7 @@ vim.opt.splitright = true -- split vertical windows to the right
 vim.opt.splitbelow = true -- split horzontal windows to the bottom
 
 -- persistent undofile
-vim.opt.undofile = true 
+vim.opt.undofile = true
 
 -- Enable syntax
 vim.cmd('syntax enable')
