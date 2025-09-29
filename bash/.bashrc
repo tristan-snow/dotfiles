@@ -11,6 +11,8 @@ shopt -s autocd
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
 
+alias resolv_reset="sudo chattr -i /etc/nordvpn/resolv.conf"
+alias logout="loginctl terminate-user $USER"
 alias dirs='dirs -v'
 alias ls='ls --color=auto'
 alias ls='ls --color=auto'
@@ -21,7 +23,6 @@ alias cl='clear'
 alias nv=nvim
 alias vn=nvim
 alias vim=nvim
-alias sp='sudo pacman -S '
 alias so=source
 alias remove_orphans='sudo pacman -Rns $(pacman -Qdtq)'
 alias nord=nordvpn
@@ -31,8 +32,8 @@ alias nordwhisper='nordvpn set technology nordwhisper && nordvpn connect'
 alias ns='nordvpn status' 
 alias gs='git status'
 
-alias wificonnect='nmcli device wifi connect' 
-alias wifidelete='nmcli connection delete' 
+alias wific='nmcli device wifi connect' 
+alias wifid='nmcli connection delete' 
 
 export VIMKEYS="$HOME/.config/nvim/lua/core/keymaps.lua"
 export VIMOPTS="$HOME/.config/nvim/lua/core/options.lua"
@@ -59,6 +60,10 @@ nf() {
   cd "$dir" || return
   nvim "$(basename "$file")"
 }
+
+# Make a directory and cd there
+# mkcd(){ mkdir "$1" && cd "$1" ; }
+mkcd() { mkdir -p "$1" && cd "$1"; }
 
 # Fuzzily find file and open it with nvim (stay in pwd)
 nfs() { fzf --query "$1" | xargs -r nvim; }
