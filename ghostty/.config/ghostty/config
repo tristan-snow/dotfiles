@@ -1,0 +1,24 @@
+
+# typography
+font-family = "Cousine Nerd Font"
+font-size=14
+font-thicken=true
+font-thicken-strength=1
+adjust-cell-height=1
+
+# Look & Feel
+# theme = catppuccin-mocha
+background-opacity = 0.8
+macos-titlebar-style = hidden
+background-blur=16
+background=#000000
+
+#default position is center
+resize-overlay-position = bottom-left
+#default is after-first
+#resize-overlay = after-first
+resize-overlay = never
+confirm-close-surface=false
+
+#keybindings
+#keybind = ctrl+a>n=new_window

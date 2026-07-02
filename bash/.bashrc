@@ -11,10 +11,10 @@ shopt -s autocd
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
 
+alias mpv="mpv --hwdec=auto"
 alias resolv_reset="sudo chattr -i /etc/nordvpn/resolv.conf"
 alias logout="loginctl terminate-user $USER"
 alias dirs='dirs -v'
-alias ls='ls --color=auto'
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -lah'
 alias grep='grep --color=auto'
@@ -30,6 +30,7 @@ alias nordob='nordvpn set technology openvpn && nordvpn set obfuscate enabled &&
 alias nordlynx='nordvpn set technology nordlynx && nordvpn connect' 
 alias nordwhisper='nordvpn set technology nordwhisper && nordvpn connect' 
 alias ns='nordvpn status' 
+alias nordc='nordvpn c'
 alias gs='git status'
 
 alias wific='nmcli device wifi connect' 
@@ -59,6 +60,13 @@ nf() {
   dir=$(dirname "$file")
   cd "$dir" || return
   nvim "$(basename "$file")"
+}
+
+# Find a file and open it with the appropriate program
+open() {
+    local file
+    file=$(find . -type f | fzf --query $1) || return
+    xdg-open "$file" >/dev/null 2>&1 &
 }
 
 # Make a directory and cd there

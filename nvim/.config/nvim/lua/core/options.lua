@@ -1,7 +1,7 @@
 
 -- Set up colorscheme
 vim.opt.termguicolors = true
-vim.opt.background = 'dark'
+-- vim.opt.background = 'dark'
 
 -- Speed up package loading
 vim.loader.enable()

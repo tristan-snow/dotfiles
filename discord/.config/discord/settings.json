@@ -1,10 +1,22 @@
 {
   "SKIP_HOST_UPDATE": true,
   "BACKGROUND_COLOR": "#121214",
-  "IS_MAXIMIZED": true,
+  "IS_MAXIMIZED": false,
   "IS_MINIMIZED": false,
   "offloadAdmControls": true,
   "chromiumSwitches": {},
   "enableHardwareAcceleration": true,
-  "debugLogging": false
+  "debugLogging": false,
+  "WINDOW_BOUNDS": {
+    "x": 0,
+    "y": 0,
+    "width": 940,
+    "height": 828
+  },
+  "asyncVideoInputDeviceInit": false,
+  "enableLibOpenH264Electron": false,
+  "openH264Enabled": true,
+  "DESKTOP_TTI_EARLY_UPDATE_CHECK": true,
+  "DESKTOP_TTI_UPDATE_BACKOFF_MAX_MS": 10000,
+  "DESKTOP_TTI_DNSTCP_WARMUP": true
 }

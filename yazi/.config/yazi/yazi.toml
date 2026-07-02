@@ -5,7 +5,7 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [mgr]
-ratio          = [ 2, 3, 4 ]
+ratio          = [ 2, 4, 4 ]
 sort_by        = "alphabetical"
 sort_sensitive = false
 sort_reverse 	 = false
@@ -89,10 +89,10 @@ image_bound      = [ 5000, 5000 ]
 suppress_preload = false
 
 [plugin]
-fetchers = [
-	# Mimetype
-	{ id = "mime", name = "*", run = "mime", prio = "high" },
-]
+# fetchers = [
+# 	# Mimetype
+# 	{ id = "mime", name = "*", run = "mime", prio = "high" },
+# ]
 spotters = [
 	{ name = "*/", run = "folder" },
 	# Code

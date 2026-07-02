@@ -1,7 +1,7 @@
 // Waybar Config
 {
   "reload_style_on_change": true,
-  "position": "bottom",
+  "position": "top",
   "modules-left": ["hyprland/workspaces"],
 // "modules-center": ["hyprland/window"],
   "modules-right": ["network", "pulseaudio", "battery", "clock"],
